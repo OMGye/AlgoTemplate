@@ -1,5 +1,7 @@
 package com.company.entity;
 
+import java.awt.*;
+
 /**
  * Created by upupgogogo on 2018/1/9.下午4:34
  */
@@ -9,6 +11,7 @@ public class Circle {
     public int y;
     public int vx;
     public int vy;
+    public boolean isFilled = false;
 
     public Circle(int x, int y, int vx, int vy,int r) {
         this.r = r;
@@ -31,5 +34,8 @@ public class Circle {
         if(y-r<0){y = r; vy = -vy;}
         if(x+r>maxx){x = maxx-r; vx = -vx;}
         if(y+r>maxy){y = maxy-r; vy = -vy;}
+    }
+    public boolean contain (Point point){
+        return (x-point.x)*(x-point.x)+(y-point.y)*(y-point.y)<=r*r;
     }
 }

@@ -5,6 +5,8 @@ import com.company.entity.Circle;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * Created by upupgogogo on 2018/1/8.下午8:08
@@ -58,6 +60,9 @@ public class AlgoFrame extends JFrame{
             //AlgoVisHelper.setStrockWidth(g2d,10);
             g2d.setColor(Color.red);
             for (Circle circle :circles){
+                if(circle.isFilled){
+                    AlgoVisHelper.fillCircle(g2d,circle.x,circle.y,circle.getR());
+                }
                 AlgoVisHelper.drawCircle(g2d,circle.x,circle.y,circle.getR());
             }
         }
@@ -67,4 +72,5 @@ public class AlgoFrame extends JFrame{
             return new Dimension(canvasWidth,canvasHeight);
         }
     }
+
 }
